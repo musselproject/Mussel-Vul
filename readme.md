@@ -1,12 +1,32 @@
-# Mussel - Dataset and Code Repository
+# MUSSEL Artifact
 
-## 🚧 Current Status
+This repository contains the code for the paper:
 
-This repository is currently under active organizing. We are organizing the related datasets and code to ensure we provide high-quality, comprehensive resources for the community.
+**"Hit The Bullseye On The First Shot: Improving LLMs Using Multi-Sample Self-Reward Feedback for Vulnerability Repair"**
 
-## 📋 Coming Soon
+## Overview
 
-- **Datasets**: Dataset files with detailed documentation
-- **Source Code**: Core algorithm implementations and experimental code
+This artifact implements MUSSEL (MUlti-Sample SElf-reward Learning), a novel approach to improve LLMs' capabilities in vulnerability repair tasks. Instead of relying on multiple-round iterations or human feedback, our method generates multiple repair candidates in a single forward pass and employs a self-reward mechanism to provide more effective learning signals to the model.
 
-**Thank you for your patience! We're working hard to prepare the best resources for you.**
+## Key Features
+
+- **Multi-Sample Self-Reward Feedback**: Generates multiple repair candidates and uses KL-divergence based weights to prioritize more informative examples
+- **One-Shot Repair**: Performs vulnerability repair without requiring multiple iterations or human feedback
+- **Improved Accuracy**: Demonstrates significant improvements over state-of-the-art models on vulnerability repair benchmarks
+
+## Core Implementation
+
+The core implementation is located at `src/llmtuner/train/dpo/trainer.py` in the `dpo_multiple_loss_weighted` method. This method:
+
+1. Processes multiple rejected candidates for each chosen sample
+2. Computes KL-divergence between the chosen sample and each rejected candidate
+3. Uses these divergences to assign weights to different learning signals
+4. Incorporates length penalties to avoid excessive verbosity or brevity
+
+## Acknowledgements
+
+This research builds upon previous work in vulnerability repair and LLM optimization.
+
+We would like to express our gratitude to the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) project, which provided the foundational framework and infrastructure that made this research possible. Their comprehensive and well-designed toolkit for LLM fine-tuning significantly accelerated our development process.
+
+*Note: The full paper details and comprehensive results are included in the submitted paper.*
