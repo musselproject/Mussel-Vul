@@ -29,4 +29,4 @@ This research builds upon previous work in vulnerability repair and LLM optimiza
 
 We would like to express our gratitude to the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) project, which provided the foundational framework and infrastructure that made this research possible. Their comprehensive and well-designed toolkit for LLM fine-tuning significantly accelerated our development process.
 
-*Note: The full paper details and comprehensive results are included in the submitted paper.*
+*Note: We are organizing the data and related scripts and will release the updated dataset and associated materials shortly.*
